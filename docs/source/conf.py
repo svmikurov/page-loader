@@ -27,6 +27,8 @@ extensions = [
     'sphinx.ext.doctest',
     # https://www.sphinx-doc.org/en/master/tutorial/automatic-doc-generation.html#reusing-signatures-and-docstrings-with-autodoc
     'sphinx.ext.autodoc',
+    # https://www.sphinx-doc.org/en/master/tutorial/automatic-doc-generation.html#generating-comprehensive-api-references
+    'sphinx.ext.autosummary',
 ]
 
 templates_path = ['_templates']
