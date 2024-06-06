@@ -1,3 +1,4 @@
+[![Python CI](https://github.com/svmikurov/page-loader/actions/workflows/pyci.yml/badge.svg)](https://github.com/svmikurov/page-loader/actions/workflows/pyci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f423f8b29e257a5776e3/maintainability)](https://codeclimate.com/github/svmikurov/page-loader/maintainability) 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f423f8b29e257a5776e3/test_coverage)](https://codeclimate.com/github/svmikurov/page-loader/test_coverage)  
 
