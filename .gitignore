@@ -3,4 +3,8 @@ coverage.xml
 
 .idea/
 __pycache__/
+
 docs/build/
+docs/source/_static/
+docs/source/_templates/
+docs/source/generated/
