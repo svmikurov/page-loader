@@ -16,5 +16,5 @@ Create documentation:
 cd docs/
 make html
 ```
-Read the [documentation](http://localhost:63342/page-loader/docs/build/html/index.html) (local only)
+Read the [documentation](http://localhost:63342/page-loader/docs/build/html/index.html) (local only)  
 Read the [documentation](https://svmikurov.github.io/page-loader/) on GitHub
