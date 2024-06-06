@@ -8,7 +8,7 @@ test:
 	poetry run pytest -vv --cov -s
 
 test-coverage:
-	poetry run pytest --cov=src --cov-report xml
+	poetry run pytest --cov=page_loader --cov-report xml
 
 selfcheck:
 	poetry check
