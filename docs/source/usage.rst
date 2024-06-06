@@ -15,7 +15,7 @@ Download page
 
 To download page use the ``download()`` function:
 
-.. autofunction:: page_loader.download
+.. autofunction:: page_loader.page_loader.download
 
 
 Doctest

@@ -3,5 +3,6 @@ API
 
 .. autosummary::
    :toctree: generated
+   :recursive:
 
-   page_loader.page_loader
+   page_loader
