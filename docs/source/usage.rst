@@ -26,3 +26,11 @@ To download page use the ``download()`` function:
     :type path: str
     :return: Path to the downloaded page.
     :rtype: str
+
+Doctest
+-------
+
+>>> from page_loader import download
+>>> file_path = download('https://ru.hexlet.io/courses', '/var/tmp')
+>>> print(file_path)
+/var/tmp/ru-hexlet-io-courses.html
