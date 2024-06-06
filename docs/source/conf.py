@@ -25,6 +25,8 @@ extensions = [
     'sphinx.ext.duration',
     # https://www.sphinx-doc.org/en/master/tutorial/describing-code.html#including-doctests-in-your-documentation
     'sphinx.ext.doctest',
+    # https://www.sphinx-doc.org/en/master/tutorial/automatic-doc-generation.html#reusing-signatures-and-docstrings-with-autodoc
+    'sphinx.ext.autodoc',
 ]
 
 templates_path = ['_templates']
