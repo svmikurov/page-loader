@@ -1,3 +1,8 @@
+import requests
+
+from page_loader.path import PathManager
+
+
 def download(requested_url: str, output_path: str = '') -> str:
     """Download the page.
 
@@ -8,17 +13,23 @@ def download(requested_url: str, output_path: str = '') -> str:
     requested_url : `str`
         Requested page url.
     output_path : `str` | `None`
-        Path for download (current directory, by default).
+        Path for page download (current directory, by default).
 
-    Examples
-    --------
-    >>> file_path = download('https://ru.hexlet.io/courses', '/var/tmp')
-    >>> print(file_path)
-    /var/tmp/ru-hexlet-io-courses.html
+    Return
+    ------
+    file_path : `str`
+        The relative path to downloaded page.
+
+    Example
+    -------
+    file_path = download('https://ru.hexlet.io/courses', '/var/tmp')
+    print(file_path)    => '/var/tmp/ru-hexlet-io-courses.html'
     """
-    return '/var/tmp/ru-hexlet-io-courses.html'
+    path_manager = PathManager(requested_url, output_path)
+    file_path = path_manager.file_path
+    page = requests.get(requested_url).text
 
+    with open(file_path, 'w') as file:
+        file.write(page)
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    return file_path
