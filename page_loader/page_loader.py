@@ -3,13 +3,12 @@ def download(requested_url: str, output_path: str = '') -> str:
 
     Write the downloaded page to a file and return the path to it.
 
-    :param requested_url: URL of the requested page.
-                          By default, this is the current directory.
-    :type requested_url: str
-    :param output_path: Path to save the page.
-    :type output_path: str
-    :return: Path to the downloaded page.
-    :rtype: str
+    Parameters
+    ----------
+    requested_url : `str`
+        Requested page url.
+    output_path : `str` | `None`
+        Path for download (current directory, by default).
 
     Examples
     --------
