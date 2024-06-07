@@ -50,6 +50,11 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 
+myst_enable_extensions = [
+  "colon_fence",
+]
+
+
 # HTML context:
 from os.path import basename, dirname, realpath     # noqa: E402
 
