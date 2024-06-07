@@ -29,6 +29,8 @@ extensions = [
     'sphinx.ext.autodoc',
     # https://www.sphinx-doc.org/en/master/tutorial/automatic-doc-generation.html#generating-comprehensive-api-references
     'sphinx.ext.autosummary',
+    # https://myst-parser.readthedocs.io/en/v0.17.1/index.html
+    'myst_parser',
 ]
 
 templates_path = ['_templates']
