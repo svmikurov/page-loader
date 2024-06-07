@@ -14,7 +14,7 @@ Internet and saves them it in the specified **existing** directory
 Along with the page, it downloads all resources (images, styles and js)
 making it possible to open the page without the Internet.
 
-Displays the full path to the downloaded file.
+Finally, displays the full path to the downloaded file.
 
 Where:
 
