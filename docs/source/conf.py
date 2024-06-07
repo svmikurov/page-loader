@@ -18,6 +18,11 @@ copyright = '2024, Sergei Mikurov'
 author = 'Sergei Mikurov'
 release = '1.0'
 
+github_user = "svmikurov"
+github_repo_name = "page-loader"  # auto-detected from dirname if blank
+github_version = "main"
+conf_py_path = "/docs/source/"   # with leading and trailing slash
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -43,3 +48,17 @@ exclude_patterns = []
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+
+# HTML context:
+from os.path import basename, dirname, realpath     # noqa: E402
+
+html_context = {
+    "display_github": True,
+    "github_user": github_user,
+    # Auto-detect directory name.  This can break, but
+    # useful as a default.
+    "github_repo": github_repo_name or basename(dirname(realpath(__file__))),
+    "github_version": github_version,
+    "conf_py_path": conf_py_path,
+}
