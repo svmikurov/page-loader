@@ -5,6 +5,7 @@ Create file and directory paths by downloaded page url.
 import logging
 import os
 import re
+from functools import cached_property
 from urllib.parse import urlparse
 
 logging.basicConfig(
@@ -72,3 +73,15 @@ class PathManager:
         hyphen_name: str = '-'.join(filter(None, name_parts)).lower() + ext
 
         return hyphen_name
+
+    @cached_property
+    def _hyphen_page_name(self) -> str:
+        """The name of the file, separated by a hyphen,
+        storing the downloaded page (`str`, read-only)."""
+        return self._hyphen_requested_url + '.html'
+
+    @property
+    def file_path(self):
+        """Relative path to the file where the downloaded page is stored.
+        (`str`, read-only)."""
+        return os.path.join(self.output_path, self._hyphen_page_name)
