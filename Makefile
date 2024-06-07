@@ -5,7 +5,7 @@ lint:
 	poetry run flake8
 
 test:
-	poetry run pytest -vv --cov -s
+	poetry run pytest
 
 test-coverage:
 	poetry run pytest --cov=page_loader --cov-report xml
@@ -13,7 +13,7 @@ test-coverage:
 selfcheck:
 	poetry check
 
-check: selfcheck lint test-coverage
+check: selfcheck lint test
 
 build:
 	poetry build
