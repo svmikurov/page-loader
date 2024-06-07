@@ -30,12 +30,14 @@ class PathManager:
 
     Attributes
     ----------
+    output_path : `str` | `None`
+        Path for download (current directory, by default).
     _hyphen_requested_url : `str`
         Requested page url without schema, separated by a hyphen.
 
     Examples
     --------
-    >>> # Instantiating and attributes for inner use.
+    >>> # Creating an instance and attributes for internal use.
     >>> path_manager = PathManager('https://ru.hexlet.io/courses', '/var/tmp')
 
     >>> # To get the download path.
@@ -81,7 +83,7 @@ class PathManager:
         return self._hyphen_requested_url + '.html'
 
     @property
-    def file_path(self):
+    def file_path(self) -> str:
         """Relative path to the file where the downloaded page is stored.
         (`str`, read-only)."""
         return os.path.join(self.output_path, self._hyphen_page_name)
