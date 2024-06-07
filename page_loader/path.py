@@ -1,4 +1,7 @@
-"""Create file and directory paths by downloaded page url."""
+"""
+Create file and directory paths by downloaded page url.
+"""
+
 import logging
 import os
 import re
@@ -12,9 +15,9 @@ logging.basicConfig(
 
 
 class PathManager:
-    """Create paths name by url.
+    """Create path names.
 
-    For create path names used ``requested_url`` and ``output_path``
+    Use for create path names from ``requested_url`` and ``output_path``
     instant attributes.
 
     Parameters
@@ -24,55 +27,43 @@ class PathManager:
     output_path : `str` | `None`
         Path for download (current directory, by default).
 
+    Attributes
+    ----------
+    _hyphen_requested_url : `str`
+        Requested page url without schema, separated by a hyphen.
+
     Examples
     --------
     >>> # Instantiating and attributes for inner use.
     >>> path_manager = PathManager('https://ru.hexlet.io/courses', '/var/tmp')
 
     >>> # To get the download path.
-    >>> path_manager.download_page_path
+    >>> path_manager.file_path
     '/var/tmp/ru-hexlet-io-courses.html'
-
-    >>> # To get the host url link for download assets.
-    >>> path_manager.get_host_link('https://ru.hexlet.io/packs/runtime.js')
-    'https://ru.hexlet.io/packs/runtime.js'
-    >>> path_manager.get_host_link('/packs/runtime.js')
-    'https://ru.hexlet.io/packs/runtime.js'
-    >>> path_manager.get_host_link('/courses')
-    'https://ru.hexlet.io/courses'
-
-    >>> # To get the local link relative path value for a downloaded page.
-    >>> path_manager.create_local_link('https://ru.hexlet.io/packs/runtime.js')
-    'ru-hexlet-io-courses_files/ru-hexlet-io-packs-runtime.js'
-    >>> path_manager.create_local_link('packs/runtime.js')
-    'ru-hexlet-io-courses_files/ru-hexlet-io-packs-runtime.js'
-    >>> path_manager.create_local_link('/courses')
-    'ru-hexlet-io-courses_files/ru-hexlet-io-courses.html'
-
-    >>> # Te get the absolute path to write page and its assets.
-    >>> path_manager.write_page_path
-    ... # doctest: +ELLIPSIS
-    '.../page-loader/src/var/tmp/ru-hexlet-io-courses.html'
-    >>> path_manager.create_write_file_path('https://ru.hexlet.io/packs/runtime.js')    # noqa: E501
-    ... # doctest: +ELLIPSIS
-    '.../page-loader/src/var/tmp/ru-hexlet-io-courses_files/ru-hexlet-io-packs-runtime.js'
-    >>> path_manager.create_write_file_path('/packs/runtime.js')
-    ... # doctest: +ELLIPSIS
-    '.../page-loader/src/var/tmp/ru-hexlet-io-courses_files/ru-hexlet-io-packs-runtime.js'
-    >>> path_manager.create_write_file_path('/courses')
-    ... # doctest: +ELLIPSIS
-    '.../page-loader/src/var/tmp/ru-hexlet-io-courses_files/ru-hexlet-io-courses.html'
     """
 
     def __init__(self, requested_url: str, output_path: str = None) -> None:
-        """Constructor."""
-        self.requested_url = requested_url
         self.output_path = output_path or ''
-        self._hyphen_path_name = self.create_hyphen_name(requested_url)
+        self._hyphen_requested_url = self._create_hyphen_name(requested_url)
 
     @staticmethod
-    def create_hyphen_name(path: str) -> str:
-        """Create name with replaced any symbols at string by hyphen."""
+    def _create_hyphen_name(path: str) -> str:
+        """Create name, separated by a hyphen.
+
+        Removes schema in url if it any.
+        Replaces any symbols in name string by hyphen.
+
+        Parameters
+        ----------
+        path : `str`
+            Page url or file (directory) path to separate by a hyphen.
+
+        Return
+        ------
+        hyphen_name : `str`
+            Url hostname with path if it any
+            or file (directory) path name, separated by a hyphen.
+        """
         path_name, ext = os.path.splitext(path)
         # the name must not contain the schema
         path_name: str = urlparse(path_name)._replace(scheme='').geturl()
