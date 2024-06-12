@@ -63,14 +63,19 @@ How creates directories
 Explanation
 -----------
 
+This package uses command-line parsing library ``argparse`` to download
+the page using the cli.
+
+.. autofunction:: page_loader.parse_args.parse_args
+
+.. autofunction:: page_loader.page_loader.download
+
 To get path names use the ``PathManager`` class:
 
 .. autoclass:: page_loader.path.PathManager
    :members:
    :undoc-members:
    :private-members:
-   :special-members: __init__,
-
 
 Reference
 ---------

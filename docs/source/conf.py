@@ -3,6 +3,8 @@
 # add these directories to sys.path here.
 import pathlib
 import sys
+from os.path import basename, dirname, realpath
+
 sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
 
 # Configuration file for the Sphinx documentation builder.
@@ -42,7 +44,6 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
@@ -56,13 +57,11 @@ myst_enable_extensions = [
 
 
 # HTML context:
-from os.path import basename, dirname, realpath     # noqa: E402
+
 
 html_context = {
     "display_github": True,
     "github_user": github_user,
-    # Auto-detect directory name.  This can break, but
-    # useful as a default.
     "github_repo": github_repo_name or basename(dirname(realpath(__file__))),
     "github_version": github_version,
     "conf_py_path": conf_py_path,
