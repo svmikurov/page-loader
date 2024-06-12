@@ -5,4 +5,4 @@ coverage.xml
 __pycache__/
 
 docs/build/
-dcos/source/generated/
+docs/source/generated/
