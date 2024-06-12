@@ -1,0 +1,29 @@
+page\_loader.parse\_args
+========================
+
+.. automodule:: page_loader.parse_args
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      parse_args
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,34 @@
+﻿page\_loader
+============
+
+.. automodule:: page_loader
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   page_loader.page_loader
+   page_loader.parse_args
+   page_loader.path
+   page_loader.scripts
+

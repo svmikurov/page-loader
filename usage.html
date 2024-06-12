@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; page-loader 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            page-loader
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial">Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#page-loader-cli">page-loader CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#page-loader-library">page_loader library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-guide">How-to guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-creates-names">How creates names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-creates-directories">How creates directories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#explanation">Explanation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#page_loader.parse_args.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#page_loader.page_loader.download"><code class="docutils literal notranslate"><span class="pre">download()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#page_loader.path.PathManager"><code class="docutils literal notranslate"><span class="pre">PathManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#page_loader.path.PathManager._create_hyphen_name"><code class="docutils literal notranslate"><span class="pre">PathManager._create_hyphen_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#page_loader.path.PathManager._hyphen_page_name"><code class="docutils literal notranslate"><span class="pre">PathManager._hyphen_page_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#page_loader.path.PathManager.file_path"><code class="docutils literal notranslate"><span class="pre">PathManager.file_path</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">page-loader</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/svmikurov/page-loader/blob/main/docs/source/usage.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<section id="tutorial">
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading"></a></h2>
+<section id="page-loader-cli">
+<h3>page-loader CLI<a class="headerlink" href="#page-loader-cli" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">page-loader</span></code> is a command line utility that downloads pages from the
+Internet and saves them it in the specified <strong>existing</strong> directory
+(by default, in the program launch directory <code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code>).</p>
+<p>Along with the page, it downloads all resources (images, styles and js)
+making it possible to open the page without the Internet.</p>
+<p>Finally, displays the full path to the downloaded file.</p>
+<p>Where:</p>
+<p><code class="docutils literal notranslate"><span class="pre">-o</span></code> <code class="docutils literal notranslate"><span class="pre">--output</span></code>    output dir flag</p>
+<p><code class="docutils literal notranslate"><span class="pre">/var/tmp</span></code>           specified <strong>existing</strong> directory</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://ru.hexlet.io/courses</span></code>    page URL</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>page-loader<span class="w"> </span>-o<span class="w"> </span>/var/tmp<span class="w"> </span>https://ru.hexlet.io/courses
+<span class="go">INFO:root:requested url: https://ru.hexlet.io/courses</span>
+<span class="go">INFO:root:output path: /var/tmp</span>
+<span class="go">INFO:root:write html file: /var/tmp/ru-hexlet-io-courses.html</span>
+<span class="go">INFO:root:create directory for assets: /var/tmp/ru-hexlet-io-courses_files</span>
+<span class="go">Downloading: |████████████████████████████████| 100.0% (eta: 0)</span>
+<span class="go">Page was downloaded as &#39;/var/tmp/ru-hexlet-io-courses.html&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="page-loader-library">
+<h3>page_loader library<a class="headerlink" href="#page-loader-library" title="Link to this heading"></a></h3>
+<p>The library provides the <code class="docutils literal notranslate"><span class="pre">page_loader</span></code> module with the <code class="docutils literal notranslate"><span class="pre">download()</span></code>
+function, the call of which downloads a page from the network into the
+specified <strong>existing</strong> directory and returns the full path to the
+downloaded file, including the name of the file itself.
+The library can be installed as a dependency and used in your code.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from page_loader import download</span>
+
+<span class="go">file_path = download(&#39;https://ru.hexlet.io/courses&#39;, &#39;/var/tmp&#39;)</span>
+<span class="go">print(file_path)  # =&gt; &#39;/var/tmp/ru-hexlet-io-courses.html&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-to-guide">
+<h2>How-to guide<a class="headerlink" href="#how-to-guide" title="Link to this heading"></a></h2>
+<section id="how-creates-names">
+<h3>How creates names<a class="headerlink" href="#how-creates-names" title="Link to this heading"></a></h3>
+</section>
+<section id="how-creates-directories">
+<h3>How creates directories<a class="headerlink" href="#how-creates-directories" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="explanation">
+<h2>Explanation<a class="headerlink" href="#explanation" title="Link to this heading"></a></h2>
+<p>This package uses command-line parsing library <code class="docutils literal notranslate"><span class="pre">argparse</span></code> to download
+the page using the cli.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="page_loader.parse_args.parse_args">
+<span class="sig-prename descclassname"><span class="pre">page_loader.parse_args.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#page_loader.parse_args.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="page_loader.page_loader.download">
+<span class="sig-prename descclassname"><span class="pre">page_loader.page_loader.</span></span><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requested_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#page_loader.page_loader.download" title="Link to this definition"></a></dt>
+<dd><p>Download the page.</p>
+<p>Write the downloaded page to a file and return the path to it.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<dl>
+<dt>requested_url<span class="classifier"><cite>str</cite></span></dt><dd><p>Requested page url.</p>
+</dd>
+<dt>output_path<span class="classifier"><cite>str</cite> | <cite>None</cite></span></dt><dd><p>Path for page download (current directory, by default).</p>
+</dd>
+</dl>
+</section>
+<section id="return">
+<h3>Return<a class="headerlink" href="#return" title="Link to this heading"></a></h3>
+<dl>
+<dt>file_path<span class="classifier"><cite>str</cite></span></dt><dd><p>The relative path to downloaded page.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<p>file_path = download(’<a class="reference external" href="https://ru.hexlet.io/courses">https://ru.hexlet.io/courses</a>’, ‘/var/tmp’)
+print(file_path)    =&gt; ‘/var/tmp/ru-hexlet-io-courses.html’</p>
+</section>
+</dd></dl>
+
+<p>To get path names use the <code class="docutils literal notranslate"><span class="pre">PathManager</span></code> class:</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="page_loader.path.PathManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">page_loader.path.</span></span><span class="sig-name descname"><span class="pre">PathManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requested_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#page_loader.path.PathManager" title="Link to this definition"></a></dt>
+<dd><p>Create path names.</p>
+<p>Use for create path names from <code class="docutils literal notranslate"><span class="pre">requested_url</span></code> and <code class="docutils literal notranslate"><span class="pre">output_path</span></code>
+instant attributes.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl>
+<dt>requested_url<span class="classifier"><cite>str</cite></span></dt><dd><p>Requested page url.</p>
+</dd>
+<dt>output_path<span class="classifier"><cite>str</cite> | <cite>None</cite></span></dt><dd><p>Path for download (current directory, by default).</p>
+</dd>
+</dl>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<dl>
+<dt>output_path<span class="classifier"><cite>str</cite> | <cite>None</cite></span></dt><dd><p>Path for download (current directory, by default).</p>
+</dd>
+<dt>_hyphen_requested_url<span class="classifier"><cite>str</cite></span></dt><dd><p>Requested page url without schema, separated by a hyphen.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Creating an instance and attributes for internal use.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path_manager</span> <span class="o">=</span> <span class="n">PathManager</span><span class="p">(</span><span class="s1">&#39;https://ru.hexlet.io/courses&#39;</span><span class="p">,</span> <span class="s1">&#39;/var/tmp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># To get the download path.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path_manager</span><span class="o">.</span><span class="n">file_path</span>
+<span class="go">&#39;/var/tmp/ru-hexlet-io-courses.html&#39;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="page_loader.path.PathManager._create_hyphen_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_create_hyphen_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#page_loader.path.PathManager._create_hyphen_name" title="Link to this definition"></a></dt>
+<dd><p>Create name, separated by a hyphen.</p>
+<p>Removes schema in url if it any.
+Replaces any symbols in name string by hyphen.</p>
+<section id="id2">
+<h4>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<dl>
+<dt>path<span class="classifier"><cite>str</cite></span></dt><dd><p>Page url or file (directory) path to separate by a hyphen.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h4>Return<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<dl>
+<dt>hyphen_name<span class="classifier"><cite>str</cite></span></dt><dd><p>Url hostname with path if it any
+or file (directory) path name, separated by a hyphen.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="page_loader.path.PathManager._hyphen_page_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_hyphen_page_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#page_loader.path.PathManager._hyphen_page_name" title="Link to this definition"></a></dt>
+<dd><p>The name of the file, separated by a hyphen,
+storing the downloaded page (<cite>str</cite>, read-only).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="page_loader.path.PathManager.file_path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">file_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#page_loader.path.PathManager.file_path" title="Link to this definition"></a></dt>
+<dd><p>Relative path to the file where the downloaded page is stored.
+(<cite>str</cite>, read-only).</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Sergei Mikurov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
